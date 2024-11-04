@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('content')
-    <section class=sign-up-page style="background-image: url('{{ asset('dashboard/images/login/login.webp') }}')">
+    <section class=sign-up-page style="background-image: url('{{ asset('dashboard/images/login/email.webp') }}')">
         <x-auth-card>
             <!-- Validation Errors -->
 

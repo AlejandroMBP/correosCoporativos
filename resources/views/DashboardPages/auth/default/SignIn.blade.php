@@ -34,7 +34,7 @@
                                 <div class="d-flex justify-content-center links">
                                     {{ __('authentication.dont_have_an_account') }}
                                     <a class="text-primary ms-2"
-                                        href="{{ route('dashboard.register') }}">{{ __('authentication.sign_up') }}</a>
+                                        href="{{ route('register.session') }}">{{ __('authentication.sign_up') }}</a>
                                 </div>
                                 <div class="d-flex justify-content-center links"><a class="f-link"
                                         href="{{ route('dashboard.reset-password') }}">{{ __('authentication.forgot_your_password') }}</a>

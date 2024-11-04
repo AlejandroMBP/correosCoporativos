@@ -79,7 +79,7 @@
             app_name: {
                 target: '[data-setting="app_name"]',
                 type: "text",
-                value: "Streamit",
+                value: "Correos",
             },
             theme_scheme_direction: {
                 target: "html",
@@ -89,7 +89,7 @@
             theme_scheme: {
                 target: "html",
                 choices: ["light", "dark", "auto"],
-                value: "ligth",
+                value: "dark",
             },
             theme_color: {
                 target: "html",
@@ -117,7 +117,7 @@
                     "sidebar-transparent",
                     "sidebar-glass",
                 ],
-                value: "sidebar-white",
+                value: "sidebar-dark",
             },
             sidebar_type: {
                 target: '[data-toggle="main-sidebar"]',
