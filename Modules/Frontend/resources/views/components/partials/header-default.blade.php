@@ -427,6 +427,15 @@
                                     </li>
                                 </ul>
                             </li> --}}
+                            {{-- boton de registro --}}
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-primary text-white text-uppercase"
+                                    href="{{ route('solicitud') }}" role="button" aria-expanded="false"
+                                    aria-controls="shop">
+                                    Registrarse
+                                </a>
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link d-flex align-items-center" data-bs-toggle="dropdown" href="#"
                                     role="button" aria-haspopup="true" aria-expanded="false"

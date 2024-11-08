@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\SolicitudCorreoController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -33,6 +34,10 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
+    //rutas para el solicitud de registros
+    Route::get('solicitud', [SolicitudCorreoController::class, 'create'])->name('solicitud');
+    Route::post('solicitud', [SolicitudCorreoController::class, 'store'])->name('solicitud.store');
+    Route::get('solicitud/exitoso', [SolicitudCorreoController::class, 'index'])->name('solicitud.exitoso');
 });
 
 Route::middleware('auth')->group(function () {

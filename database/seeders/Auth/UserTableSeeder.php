@@ -27,20 +27,26 @@ class UserTableSeeder extends Seeder
         // Add the master administrator, user id of 1
         $avatarPath = config('app.avatar_base_path');
         $admin1 = User::create([
+            'carnet' => '0',
             'first_name' => 'marcos',
             'last_name' => 'berrios',
             'email' => 'marcos@marcos.com',
+            'celular' => 0000000,
             'password' => Hash::make('123456789'),
+            'fechaNacimiento' => Carbon::now(),
             'email_verified_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
         ]);
         $admin1->assignRole('admin');
         $admin = User::create([
+            'carnet' => '0',
             'first_name' => 'Admin',
             'last_name' => 'Demo',
             'email' => 'admin@demo.com',
+            'celular' => 0000000,
             'password' => Hash::make('12345678'),
+            'fechaNacimiento' => Carbon::now(),
             'email_verified_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::now(),
@@ -48,13 +54,16 @@ class UserTableSeeder extends Seeder
         $admin->assignRole('admin');
         $users = [
             [
-            'first_name' => 'John',
-            'last_name' => 'Richards',
-            'email' => 'john.richards@hotmail.com',
-            'password' => Hash::make('12345678'),
-            'email_verified_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            'created_at' => Carbon::now(),
+                'carnet' => '0',
+                'first_name' => 'John',
+                'last_name' => 'Richards',
+                'email' => 'john.richards@hotmail.com',
+                'celular' => 0000000,
+                'password' => Hash::make('12345678'),
+                'fechaNacimiento' => Carbon::now(),
+                'email_verified_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
             ],
         ];
 
@@ -67,7 +76,7 @@ class UserTableSeeder extends Seeder
             if (env('IS_FAKE_DATA')) {
                 User::factory()->count(30)->create()->each(function ($user) {
                     $user->assignRole('user');
-                    $img = public_path('/dummy-images/customers/'.fake()->numberBetween(1, 13).'.webp');
+                    $img = public_path('/dummy-images/customers/' . fake()->numberBetween(1, 13) . '.webp');
                     $this->attachFeatureImage($user, $img);
                 });
             }

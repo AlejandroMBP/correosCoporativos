@@ -19,11 +19,15 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
+    protected $table = 'users';
     protected $fillable = [
+        'carnet',
         'username',
         'first_name',
         'last_name',
         'email',
+        'celular',
+        'fechaNacimiento',
         'password',
     ];
 
@@ -59,7 +63,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getFullNameAttribute() // notice that the attribute name is in CamelCase.
     {
-        return $this->first_name.' '.$this->last_name;
+        return $this->first_name . ' ' . $this->last_name;
     }
 
 
@@ -67,6 +71,6 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $media = $this->getFirstMediaUrl('profile_image');
 
-        return isset($media) && ! empty($media) ? $media : asset(config('app.avatar_base_path').'avatar.png');
+        return isset($media) && ! empty($media) ? $media : asset(config('app.avatar_base_path') . 'avatar.png');
     }
 }
