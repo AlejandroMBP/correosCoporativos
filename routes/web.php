@@ -6,6 +6,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RolePermission;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SolicitudCorreoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/app', [DashboardController::class, 'index'])->middleware(['auth','verified'])->name('dashboard');
+Route::get('/app', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -51,7 +52,9 @@ Route::group(['as' => 'dashboard.'], function () {
         Route::get('lock-screen', [DashboardController::class, 'lock_screen'])->name('lock-screen');
         Route::get('TwoFactor', [DashboardController::class, 'TwoFactor'])->name('TwoFactor');
         Route::get('AccountDeactivated', [DashboardController::class, 'AccountDeactivated'])->name('AccountDeactivated');
+        Route::get('solicitud', [SolicitudCorreoController::class, 'index'])->name('muestra.index');
     });
+
 
     Route::get('error-404', [DashboardController::class, 'error404'])->name('error-404');
     Route::get('error-500', [DashboardController::class, 'error500'])->name('error-500');

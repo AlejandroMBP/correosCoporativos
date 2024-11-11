@@ -430,7 +430,7 @@
                             {{-- boton de registro --}}
                             <li class="nav-item">
                                 <a class="nav-link btn btn-primary text-white text-uppercase"
-                                    href="{{ route('solicitud') }}" role="button" aria-expanded="false"
+                                    href="{{ route('register') }}" role="button" aria-expanded="false"
                                     aria-controls="shop">
                                     Registrarse
                                 </a>

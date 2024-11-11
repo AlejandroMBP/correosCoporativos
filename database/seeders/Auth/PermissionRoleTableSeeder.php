@@ -29,19 +29,19 @@ class PermissionRoleTableSeeder extends Seeder
             $permissions = ['view', 'add', 'edit', 'delete'];
             $module_name = strtolower(str_replace(' ', '_', $module['module_name']));
             foreach ($permissions as $key => $value) {
-                $permission_name = $value.'_'.$module_name;
+                $permission_name = $value . '_' . $module_name;
                 Permission::firstOrCreate(['name' => $permission_name, 'is_fixed' => true]);
             }
             if (isset($module['more_permission']) && is_array($module['more_permission'])) {
                 foreach ($module['more_permission'] as $key => $value) {
-                    $permission_name = $module_name.'_'.$value;
+                    $permission_name = $module_name . '_' . $value;
                     Permission::firstOrCreate(['name' => $permission_name, 'is_fixed' => true]);
                 }
             }
         }
         // Assign Permissions to Roles
         $admin->givePermissionTo(Permission::get());
-        $user->givePermissionTo([
+        $admin->givePermissionTo([
             'view_rating',
             'add_rating',
             'edit_rating',
@@ -70,7 +70,7 @@ class PermissionRoleTableSeeder extends Seeder
             'add_episodes',
             'edit_episodes',
             'delete_episodes',
-            ]);
+        ]);
 
 
         Schema::enableForeignKeyConstraints();
