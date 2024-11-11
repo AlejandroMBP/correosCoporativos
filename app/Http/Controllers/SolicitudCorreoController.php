@@ -19,4 +19,7 @@ class SolicitudCorreoController extends Controller
 
         return view('DashboardPages.solicitudes.index', compact('usuarios'));
     }
+    public function envio(){
+        
+    }
 }

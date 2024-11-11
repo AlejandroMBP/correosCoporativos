@@ -53,6 +53,7 @@ Route::group(['as' => 'dashboard.'], function () {
         Route::get('TwoFactor', [DashboardController::class, 'TwoFactor'])->name('TwoFactor');
         Route::get('AccountDeactivated', [DashboardController::class, 'AccountDeactivated'])->name('AccountDeactivated');
         Route::get('solicitud', [SolicitudCorreoController::class, 'index'])->name('muestra.index');
+        Route::post('envio',[SolicitudCorreoController::class,'envio'])->name('solicitud.correoCorporativo');
     });
 
 
