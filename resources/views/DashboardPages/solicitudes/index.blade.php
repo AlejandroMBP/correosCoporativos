@@ -5,6 +5,11 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header border-bottom d-flex justify-content-between align-items-center py-3">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <div class="card-title">
                         <h4 class="m-0">{{ __('dashboard.Rating_List') }}</h4>
                     </div>

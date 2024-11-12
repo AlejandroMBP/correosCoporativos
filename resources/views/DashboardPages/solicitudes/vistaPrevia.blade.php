@@ -13,51 +13,52 @@
                     <div class="row mb-3">
                         <div class="col mb-6">
                             <label for="username" class="form-label">Nombre de usuario</label>
-                            <input type="text" class="form-control no-select" id="username"
+                            <input type="text" class="form-control no-select" id="username" name = "username"
                                 placeholder="Ingresa tu nombre de usuario" readonly>
                         </div>
                         <div class="col mb-6">
                             <label for="carnet" class="form-label">carnet</label>
-                            <input type="text" class="form-control no-select" id="carnet"
+                            <input type="text" class="form-control no-select" id="carnet" name="carnet"
                                 placeholder="Ingresa tu carnet" readonly>
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre Completo</label>
-                        <input type="text" class="form-control no-select" id="nombre"
+                        <input type="text" class="form-control no-select" id="nombre" name="nombre"
                             placeholder="Ingresa tu nombre " readonly>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo</label>
-                        <input type="email" class="form-control no-select" id="email"
+                        <input type="email" class="form-control no-select" id="email" name="email"
                             placeholder="Ingresa tu correo" readonly>
                     </div>
                     <div class="row mb-3">
 
                         <div class="col mb-6">
                             <label for="phone" class="form-label">Celular</label>
-                            <input type="text" class="form-control no-select" id="phone"
+                            <input type="text" class="form-control no-select" id="phone" name="phone"
                                 placeholder="Ingresa tu número de celular" readonly>
                         </div>
 
                         <div class="col mb-6">
                             <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
-                            <input type="date" class="form-control no-select" id="fechaNacimiento" readonly>
+                            <input type="date" class="form-control no-select" id="fechaNacimiento"
+                                name="fechaNacimiento" readonly>
                         </div>
                     </div>
 
 
                     <div class="mb-3">
                         <label for="emailCorporativo" class="form-label">Correo corporativo</label>
-                        <input type="email" class="form-control" id="emailCorporativo"
+                        <input type="email" class="form-control" id="emailCorporativo" name="emailCorporativo"
                             placeholder="Correo@.upea.edu.bo">
                     </div>
                 </div>
             </form>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">enviar correo</button>
+                <button type="submit" class="btn btn-primary">enviar correo</button>
             </div>
         </div>
     </div>
