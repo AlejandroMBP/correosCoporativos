@@ -1,8 +1,9 @@
 <nav class="nav navbar navbar-expand-xl header-hover-menu navbar-light iq-navbar">
     <div class="container-fluid navbar-inner">
-        <a href="{{ route('dashboard') }}" class="navbar-brand">
+        <a href="#" class="navbar-brand">
             @include('components.widget.logo')
         </a>
+
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
             <i class="icon d-flex">
                 <svg class="icon-20" width="20" viewBox="0 0 24 24">
@@ -21,15 +22,40 @@
                 id="offcanvasBottom">
                 <div class="offcanvas-body">
                     <ul class="iq-nav-menu list-unstyled">
-                        <li class="nav-item"><a class="nav-link {{ activeRoute(route('dashboard')) }} {{ activeRoute(route('dashboard')) }}" href="{{ route('dashboard') }}">{{__('header.home')}}</a></li>
-                        @can('view_movies')
-                            <li class="nav-item"><a class="nav-link  {{ activeRoute(route('dashboard.movie-list')) }} {{ activeRoute(route('dashboard.movie-list')) }}" href="{{ route('dashboard.movie-list') }}"> {{__('header.movie_list')}}</a>
-                            @endcan
-                        </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-arrow {{ isset($Activelink) && $Activelink === "Tvshow" ? "active" : "" }}" data-bs-toggle="collapse" href="#tv-shows" role="button"
-                                aria-expanded="false" aria-controls="tv-shows">
-                                {{__('header.tv_shows')}}
+                            <a class="nav-link {{ activeRoute(route('dashboard.usuario')) }}"
+                                href="{{ auth()->user()->hasRole('user') ? route('dashboard.usuario') : route('dashboard') }}">
+                                {{ __('header.home') }}
+                                <i class="right-icon">
+                                    <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.5 5L15.5 12L8.5 19" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </i>
+                            </a>
+                        </li>
+
+                        @can('view_movies')
+                            <li class="nav-item">
+                                <a class="nav-link {{ activeRoute(route('dashboard.movie-list')) }}"
+                                    href="{{ route('dashboard.movie-list') }}">
+                                    {{ __('header.movie_list') }}
+                                    <i class="right-icon">
+                                        <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.5 5L15.5 12L8.5 19" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </li>
+                        @endcan
+                        {{-- <li class="nav-item">
+                            <a class="nav-link menu-arrow {{ isset($Activelink) && $Activelink === 'Tvshow' ? 'active' : '' }}"
+                                data-bs-toggle="collapse" href="#tv-shows" role="button" aria-expanded="false"
+                                aria-controls="tv-shows">
+                                {{ __('header.tv_shows') }}
                                 <i class="right-icon">
                                     <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -41,19 +67,22 @@
                             <ul aria-expanded="false" class="iq-header-sub-menu left list-unstyled collapse"
                                 id="tv-shows">
                                 @can('view_shows')
-                                    <li class="nav-item"><a class="nav-link {{ activeRoute(route('dashboard.show-list')) }} " href="{{ route('dashboard.show-list') }}">
-                                        {{__('header.show_list')}}</a></li>
+                                    <li class="nav-item"><a
+                                            class="nav-link {{ activeRoute(route('dashboard.show-list')) }} "
+                                            href="{{ route('dashboard.show-list') }}">
+                                            {{ __('header.show_list') }}</a></li>
                                 @endcan
                                 @can('view_seasons')
                                     <li class="nav-item"><a class="nav-link {{ activeRoute(route('dashboard.seasons')) }} "
-                                            href="{{ route('dashboard.seasons') }}">{{__('header.seasons')}}</a></li>
+                                            href="{{ route('dashboard.seasons') }}">{{ __('header.seasons') }}</a></li>
                                 @endcan
                                 @can('view_episodes')
-                                    <li class="nav-item"><a class="nav-link {{ activeRoute(route('dashboard.episodes')) }} "
-                                            href="{{ route('dashboard.episodes') }}">{{__('header.episodes')}}</a></li>
+                                    <li class="nav-item"><a
+                                            class="nav-link {{ activeRoute(route('dashboard.episodes')) }} "
+                                            href="{{ route('dashboard.episodes') }}">{{ __('header.episodes') }}</a></li>
                                 @endcan
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
@@ -71,7 +100,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="mb-2 navbar-nav ms-auto align-items-center navbar-list mb-lg-0 ">
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a href="#" class="nav-link" id="search-drop" data-bs-toggle="dropdown">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -88,10 +117,12 @@
                                 <div class="header-title">
                                     <div class="iq-search-bar device-search  position-relative">
                                         <form action="#" class="searchbox">
-                                            <input type="text" class="text search-input form-control bg-primary-subtle w-100"
-                                                placeholder="{{__('header.search_here')}}">
+                                            <input type="text"
+                                                class="text search-input form-control bg-primary-subtle w-100"
+                                                placeholder="{{ __('header.search_here') }}">
                                             <a class="d-lg-none d-flex" href="javascript:void(0);">
-                                                <span class="material-symbols-outlined">{{__('header.search')}}</span>
+                                                <span
+                                                    class="material-symbols-outlined">{{ __('header.search') }}</span>
                                             </a>
                                         </form>
                                     </div>
@@ -104,8 +135,9 @@
                                             class="align-self-center img-fluid avatar-50 rounded-pill" alt="#">
                                     </div>
                                     <div class="d-flex flex-column ms-3 w-100">
-                                        <a href="javascript:void(0);" class="h5">{{__('header.paige_turner')}}</a>
-                                        <span>{{__('header.paige')}}</span>
+                                        <a href="javascript:void(0);"
+                                            class="h5">{{ __('header.paige_turner') }}</a>
+                                        <span>{{ __('header.paige') }}</span>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center border-bottom search-hover py-2 px-3">
@@ -114,8 +146,9 @@
                                             class="align-self-center img-fluid avatar-50 rounded-pill" alt="#">
                                     </div>
                                     <div class="d-flex flex-column ms-3 w-100">
-                                        <a href="javascript:void(0);" class="h5">{{__('header.monty_carlo')}}</a>
-                                        <span>{{__('header.carlo_m')}}</span>
+                                        <a href="javascript:void(0);"
+                                            class="h5">{{ __('header.monty_carlo') }}</a>
+                                        <span>{{ __('header.carlo_m') }}</span>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center search-hover py-2 px-3 border-bottom">
@@ -124,8 +157,9 @@
                                             class="align-self-center img-fluid avatar-50 rounded-pill" alt="#">
                                     </div>
                                     <div class="d-flex flex-column ms-3 w-100">
-                                        <a href="javascript:void(0);" class="h5">{{__('header.paul_molive')}}</a>
-                                        <span>{{__('header.paul')}}</span>
+                                        <a href="javascript:void(0);"
+                                            class="h5">{{ __('header.paul_molive') }}</a>
+                                        <span>{{ __('header.paul') }}</span>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center border-bottom search-hover py-2 px-3">
@@ -134,15 +168,16 @@
                                             class="align-self-center img-fluid avatar-50 rounded-pill" alt="#">
                                     </div>
                                     <div class="d-flex flex-column ms-3 w-100">
-                                        <a href="javascript:void(0);" class="h5">{{__('header.monty_carlo')}}</a>
-                                        <span>{{__('header.carlo_m')}}</span>
+                                        <a href="javascript:void(0);"
+                                            class="h5">{{ __('header.monty_carlo') }}</a>
+                                        <span>{{ __('header.carlo_m') }}</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item dropdown">
+                </li> --}}
+                {{-- <li class="nav-item dropdown">
                     <a href="#" class="nav-link" id="langues-drop" data-bs-toggle="dropdown">
                         <svg class="icon-24" width="24" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -184,23 +219,24 @@
                             </div>
                         </li>
                     </ul>
-                </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: inherit !important;">
-                            <i class="fa-solid fa-globe me-1"></i>{{strtoupper(App::getLocale())}}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end">
-
-                            @foreach(config('app.available_locales') as $locale => $title)
-                            <a class="dropdown-item" href="{{route("language.switch", $locale)}}">
-                                {{ $title }}
-                            </a>
-                            @endforeach
-                        </div>
-                    </li>
+                </li> --}}
 
                 <li class="nav-item dropdown">
+                    <a class="nav-link d-flex align-items-center" data-bs-toggle="dropdown" href="#"
+                        role="button" aria-haspopup="true" aria-expanded="false" style="color: inherit !important;">
+                        <i class="fa-solid fa-globe me-1"></i>{{ strtoupper(App::getLocale()) }}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+
+                        @foreach (config('app.available_locales') as $locale => $title)
+                            <a class="dropdown-item" href="{{ route('language.switch', $locale) }}">
+                                {{ $title }}
+                            </a>
+                        @endforeach
+                    </div>
+                </li>
+
+                {{-- <li class="nav-item dropdown">
                     <a href="#" class="nav-link" id="notification-drop" data-bs-toggle="dropdown">
                         <svg class="icon-24" width="24" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -217,7 +253,7 @@
                         <li class="">
                             <div class="p-3 card-header d-flex justify-content-between bg-primary rounded-top">
                                 <div class="header-title">
-                                    <h5 class="mb-0 text-white">{{__('header.all_notifications')}}</h5>
+                                    <h5 class="mb-0 text-white">{{ __('header.all_notifications') }}</h5>
                                 </div>
                             </div>
                             <div class="p-0 card-body all-notification">
@@ -227,10 +263,11 @@
                                             src="{{ asset('dashboard/images/shapes/01.png') }}" alt=""
                                             loading="lazy">
                                         <div class="ms-3 w-100">
-                                            <h6 class="mb-0 ">{{__('header.emma_watson_bni')}}</h6>
+                                            <h6 class="mb-0 ">{{ __('header.emma_watson_bni') }}</h6>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <p class="mb-0">95 MB</p>
-                                                <small class="float-end font-size-12">{{__('header.just_now')}}</small>
+                                                <small
+                                                    class="float-end font-size-12">{{ __('header.just_now') }}</small>
                                             </div>
                                         </div>
                                     </div>
@@ -243,10 +280,11 @@
                                                 loading="lazy">
                                         </div>
                                         <div class="ms-3 w-100">
-                                            <h6 class="mb-0 ">{{__('header.new_customer_is_join')}}</h6>
+                                            <h6 class="mb-0 ">{{ __('header.new_customer_is_join') }}</h6>
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <p class="mb-0">{{__('header.cyst_bni')}}</p>
-                                                <small class="float-end font-size-12">5 {{__('header.days_ago')}}</small>
+                                                <p class="mb-0">{{ __('header.cyst_bni') }}</p>
+                                                <small class="float-end font-size-12">5
+                                                    {{ __('header.days_ago') }}</small>
                                             </div>
                                         </div>
                                     </div>
@@ -257,10 +295,11 @@
                                             src="{{ asset('dashboard/images/shapes/03.png') }}" alt=""
                                             loading="lazy">
                                         <div class="ms-3 w-100">
-                                            <h6 class="mb-0 ">{{__('header.two_customer_is_left')}}</h6>
+                                            <h6 class="mb-0 ">{{ __('header.two_customer_is_left') }}</h6>
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <p class="mb-0">{{__('header.cyst_bni')}}</p>
-                                                <small class="float-end font-size-12">2 {{__('header.days_ago')}}</small>
+                                                <p class="mb-0">{{ __('header.cyst_bni') }}</p>
+                                                <small class="float-end font-size-12">2
+                                                    {{ __('header.days_ago') }}</small>
                                             </div>
                                         </div>
                                     </div>
@@ -271,10 +310,11 @@
                                             src="{{ asset('dashboard/images/shapes/04.png') }}" alt=""
                                             loading="lazy">
                                         <div class="w-100 ms-3">
-                                            <h6 class="mb-0 ">{{__('header.new_mail_from_fenny')}}</h6>
+                                            <h6 class="mb-0 ">{{ __('header.new_mail_from_fenny') }}</h6>
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <p class="mb-0">{{__('header.cyst_bni')}}</p>
-                                                <small class="float-end font-size-12">3 {{__('header.days_ago')}}</small>
+                                                <p class="mb-0">{{ __('header.cyst_bni') }}</p>
+                                                <small class="float-end font-size-12">3
+                                                    {{ __('header.days_ago') }}</small>
                                             </div>
                                         </div>
                                     </div>
@@ -282,7 +322,7 @@
                             </div>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-item theme-scheme-dropdown dropdown">
                     <a href="#" class="nav-link" id="mode-drop" data-bs-toggle="dropdown">
                         <svg class="icon-24" width="24" viewBox="0 0 24 24" fill="none"
@@ -352,7 +392,7 @@
                                             d="M5.09541 6.69715C5.19979 6.8017 5.32374 6.88466 5.4602 6.94128C5.59665 6.9979 5.74292 7.02708 5.89065 7.02714C6.03839 7.0272 6.18469 6.99815 6.32119 6.94164C6.45769 6.88514 6.58171 6.80228 6.68618 6.69782C6.79064 6.59336 6.87349 6.46933 6.93 6.33283C6.9865 6.19633 7.01556 6.05003 7.01549 5.9023C7.01543 5.75457 6.98625 5.60829 6.92963 5.47184C6.87301 5.33539 6.79005 5.21143 6.6855 5.10706L5.6247 4.04626C5.5204 3.94137 5.39643 3.8581 5.25989 3.80121C5.12335 3.74432 4.97692 3.71493 4.82901 3.71472C4.68109 3.71452 4.53458 3.7435 4.39789 3.80001C4.26119 3.85652 4.13699 3.93945 4.03239 4.04404C3.9278 4.14864 3.84487 4.27284 3.78836 4.40954C3.73185 4.54624 3.70287 4.69274 3.70308 4.84066C3.70329 4.98858 3.73268 5.135 3.78957 5.27154C3.84646 5.40808 3.92974 5.53205 4.03462 5.63635L5.09541 6.69715Z"
                                             fill="currentColor"></path>
                                     </svg>
-                                    <span class="ms-3 mb-0">{{__('header.light')}}</span>
+                                    <span class="ms-3 mb-0">{{ __('header.light') }}</span>
                                 </label>
                             </div>
                         </li>
@@ -376,7 +416,7 @@
                                             d="M13.0379 7.47998C13.8688 7.47998 14.5446 8.15585 14.5446 8.98668C14.5446 9.26428 14.7693 9.48891 15.0469 9.48891C15.3245 9.48891 15.5491 9.26428 15.5491 8.98668C15.5491 8.15585 16.225 7.47998 17.0558 7.47998C17.3334 7.47998 17.558 7.25535 17.558 6.97775C17.558 6.70015 17.3334 6.47552 17.0558 6.47552C16.225 6.47552 15.5491 5.76616 15.5491 4.93534C15.5491 4.65774 15.3245 4.43311 15.0469 4.43311C14.7693 4.43311 14.5446 4.65774 14.5446 4.93534C14.5446 5.76616 13.8688 6.47552 13.0379 6.47552C12.7603 6.47552 12.5357 6.70015 12.5357 6.97775C12.5357 7.25535 12.7603 7.47998 13.0379 7.47998Z"
                                             fill="currentColor"></path>
                                     </svg>
-                                    <span class="ms-3 mb-0">{{__('header.dark')}}</span>
+                                    <span class="ms-3 mb-0">{{ __('header.dark') }}</span>
                                 </label>
                             </div>
                         </li>
@@ -391,7 +431,7 @@
                                             d="M1.34375 3.9463V15.2178C1.34375 16.119 2.08105 16.8563 2.98219 16.8563H8.65093V19.4594H6.15702C5.38853 19.4594 4.75981 19.9617 4.75981 20.5757V21.6921H19.2403V20.5757C19.2403 19.9617 18.6116 19.4594 17.8431 19.4594H15.3492V16.8563H21.0179C21.919 16.8563 22.6562 16.119 22.6562 15.2178V3.9463C22.6562 3.04516 21.9189 2.30786 21.0179 2.30786H2.98219C2.08105 2.30786 1.34375 3.04516 1.34375 3.9463ZM12.9034 9.9016C13.241 9.98792 13.5597 10.1216 13.852 10.2949L15.0393 9.4353L15.9893 10.3853L15.1297 11.5727C15.303 11.865 15.4366 12.1837 15.523 12.5212L16.97 12.7528V13.4089H13.9851C13.9766 12.3198 13.0912 11.4394 12 11.4394C10.9089 11.4394 10.0235 12.3198 10.015 13.4089H7.03006V12.7528L8.47712 12.5211C8.56345 12.1836 8.69703 11.8649 8.87037 11.5727L8.0107 10.3853L8.96078 9.4353L10.148 10.2949C10.4404 10.1215 10.759 9.98788 11.0966 9.9016L11.3282 8.45467H12.6718L12.9034 9.9016ZM16.1353 7.93758C15.6779 7.93758 15.3071 7.56681 15.3071 7.1094C15.3071 6.652 15.6779 6.28122 16.1353 6.28122C16.5926 6.28122 16.9634 6.652 16.9634 7.1094C16.9634 7.56681 16.5926 7.93758 16.1353 7.93758ZM2.71385 14.0964V3.90518C2.71385 3.78023 2.81612 3.67796 2.94107 3.67796H21.0589C21.1839 3.67796 21.2861 3.78023 21.2861 3.90518V14.0964C15.0954 14.0964 8.90462 14.0964 2.71385 14.0964Z"
                                             fill="currentColor"></path>
                                     </svg>
-                                    <span class="ms-3 mb-0">{{__('header.auto')}}</span>
+                                    <span class="ms-3 mb-0">{{ __('header.auto') }}</span>
                                 </label>
                             </div>
                         </li>
@@ -441,20 +481,24 @@
                         <img src="{{ asset('dashboard/images/avatars/05.png') }}" alt="User-Profile"
                             class="theme-color-pink-img img-fluid avatar avatar-50 avatar-rounded" loading="lazy">
                         <div class="caption ms-3 d-none d-md-block ">
-                            <h6 class="mb-0 caption-title">{{__('header.austin_robertson')}}</h6>
-                            <p class="mb-0 caption-sub-title">{{__('header.marketing_administrator')}}</p>
+                            <h6 class="mb-0 caption-title">
+                                {{ __('frontendheader.welcome', ['usuario' => auth()->user()->first_name . '  ' . auth()->user()->last_name]) }}
+                            </h6>
+                            {{-- <p class="mb-0 caption-sub-title">{{ __('header.marketing_administrator') }}</p> --}}
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-setting">
-                        <li><a class="dropdown-item" href="{{ route('dashboard.profile') }}">{{__('header.profile')}}</a></li>
-                        <li><a class="dropdown-item" href="{{ route('dashboard.privacy') }}">{{__('header.privacy_setting')}}</a></li>
+                        {{-- <li><a class="dropdown-item"
+                                href="{{ route('dashboard.profile') }}">{{ __('header.profile') }}</a></li>
+                        <li><a class="dropdown-item"
+                                href="{{ route('dashboard.privacy') }}">{{ __('header.privacy_setting') }}</a></li>
                         <li>
                             <hr class="dropdown-divider">
-                        </li>
+                        </li> --}}
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{__('header.logout')}}
+                                {{ __('header.logout') }}
                             </a>
                         </li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -465,5 +509,3 @@
         </div>
     </div>
 </nav>
-
-
