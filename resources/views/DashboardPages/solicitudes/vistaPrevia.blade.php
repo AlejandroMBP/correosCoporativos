@@ -10,6 +10,7 @@
             <form action="{{ route('dashboard.solicitud.correoCorporativo') }}" method="POST">
                 @csrf
                 <div class="modal-body">
+                    <input type="hidden" id=hiddenId name="id" value="">
                     <div class="row mb-3">
                         <div class="col mb-6">
                             <label for="username" class="form-label">Nombre de usuario</label>
@@ -22,7 +23,6 @@
                                 placeholder="Ingresa tu carnet" readonly>
                         </div>
                     </div>
-
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre Completo</label>
                         <input type="text" class="form-control no-select" id="nombre" name="nombre"
@@ -52,14 +52,14 @@
                     <div class="mb-3">
                         <label for="emailCorporativo" class="form-label">Correo corporativo</label>
                         <input type="email" class="form-control" id="emailCorporativo" name="emailCorporativo"
-                            placeholder="Correo@.upea.edu.bo">
+                            placeholder="Correo@.upea.edu.bo" autofocus>
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">enviar correo</button>
+                </div>
             </form>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">enviar correo</button>
-            </div>
         </div>
     </div>
 </div>
@@ -80,4 +80,8 @@
             });
         }));
     });
+
+    document.querySelector('form').onsubmit = function() {
+        $('#modalVistaDatos').modal('hide');
+    };
 </script>

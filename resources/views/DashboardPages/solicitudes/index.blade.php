@@ -47,7 +47,8 @@
                                             <div class="d-flex justify-content-evenly">
                                                 <button class="btn btn-primary btn-icon btn-sm rounded-pill" type="button"
                                                     data-bs-toggle="modal" data-bs-target="#modalVistaDatos"
-                                                    data-id="{{ $user->id }}" data-userName = "{{ $user->username }}"
+                                                    data-id="{{ encrypt($user->id) }}"
+                                                    data-userName = "{{ $user->username }}"
                                                     data-carnet = "{{ $user->carnet }}"
                                                     data-first_name="{{ $user->first_name }}"
                                                     data-last_name="{{ $user->last_name }}"
@@ -58,10 +59,6 @@
                                                         <i class="fa-solid fa-eye"></i>
                                                     </span>
                                                 </button>
-                                                {{-- <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal"
-                                                    data-bs-target="#modalVistaDatos">
-                                                    Launch demo modal
-                                                </button> --}}
                                                 <a class="btn btn-danger btn-icon btn-sm rounded-pill ms-2" href="#"
                                                     role="button">
                                                     <span class="btn-inner">
@@ -97,6 +94,7 @@
             var celular = button.getAttribute('data-celular');
             var fechaNacimiento = button.getAttribute('data-fechaNacimiento');
 
+            modalVistaDatos.querySelector('#hiddenId').value = id;
             modalVistaDatos.querySelector('#username').value = userName;
             modalVistaDatos.querySelector('#carnet').value = carnet;
             modalVistaDatos.querySelector('#nombre').value = `${firstName} ${lastName}`;

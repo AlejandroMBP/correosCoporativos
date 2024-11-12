@@ -26,6 +26,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/app', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::get('/datos-usuario', [DashboardController::class, 'datos'])->middleware(['auth', 'verified'])->name('dashboard.usuario');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -54,7 +57,7 @@ Route::group(['as' => 'dashboard.'], function () {
         Route::get('AccountDeactivated', [DashboardController::class, 'AccountDeactivated'])->name('AccountDeactivated');
         Route::get('solicitud', [SolicitudCorreoController::class, 'index'])->name('muestra.index');
     });
-    Route::post('envio',[SolicitudCorreoController::class,'envio'])->name('solicitud.correoCorporativo');
+    Route::post('envio', [SolicitudCorreoController::class, 'envio'])->name('solicitud.correoCorporativo');
 
 
     Route::get('error-404', [DashboardController::class, 'error404'])->name('error-404');

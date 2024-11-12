@@ -61,7 +61,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $appends = ['full_name', 'profile_image'];
 
-    public function getFullNameAttribute() // notice that the attribute name is in CamelCase.
+    public function getFullNameAttribute()
     {
         return $this->first_name . ' ' . $this->last_name;
     }
@@ -72,5 +72,9 @@ class User extends Authenticatable implements MustVerifyEmail
         $media = $this->getFirstMediaUrl('profile_image');
 
         return isset($media) && ! empty($media) ? $media : asset(config('app.avatar_base_path') . 'avatar.png');
+    }
+    public function correoCorporativo()
+    {
+        return $this->hasOne(CorreoCorporativo::class);
     }
 }

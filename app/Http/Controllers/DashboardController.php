@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -12,7 +13,12 @@ class DashboardController extends Controller
         $title = 'Home';
         return view('DashboardPages.IndexPage', compact('title'));
     }
-
+    public function datos(Request $request)
+    {
+        $title = 'Datos';
+        $usuario = User::find(Auth::id());
+        return view('DashboardPages.datos-usuario', compact('title', 'usuario'));
+    }
     public function rating(Request $request)
     {
         $title = 'Rating';

@@ -23,21 +23,22 @@ class CorreoCorporativo extends Mailable
      * @param $correoCorporativo
      * @param $password
      */
-    public function __construct($usuario,$correoCorporativo,$password)
+    public function __construct($usuario, $correoCorporativo, $password)
     {
         $this->usuario = $usuario;
         $this->correoCorporativo = $correoCorporativo;
         $this->password = $password;
     }
 
-    public function build(){
+    public function build()
+    {
         return $this->subject('Detalle del correo corporativo')
-                    ->view('emails.correo_corporativo')
-                    ->with([
-                        'usuario' => $this->usuario,
-                        'correoCorporativo' => $this->correoCorporativo,
-                        'password' => $this->password,
-        ]);
+            ->view('emails.correo_corporativo')
+            ->with([
+                'usuario' => $this->usuario,
+                'correoCorporativo' => $this->correoCorporativo,
+                'password' => $this->password,
+            ]);
     }
     /**
      * Get the message envelope.
@@ -52,20 +53,20 @@ class CorreoCorporativo extends Mailable
     /**
      * Get the message content definition.
      */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
+    // public function content(): Content
+    // {
+    //     return new Content(
+    //         view: 'view.name',
+    //     );
+    // }
 
     /**
      * Get the attachments for the message.
      *
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
-    public function attachments(): array
-    {
-        return [];
-    }
+    // public function attachments(): array
+    // {
+    //     return [];
+    // }
 }
