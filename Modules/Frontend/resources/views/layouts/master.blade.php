@@ -33,7 +33,6 @@
         @if (isset($isBreadCrumb) && $isBreadCrumb)
             @include('frontend::components.breadcrumb-widget')
         @endif
-
         @yield('content')
     </main>
 

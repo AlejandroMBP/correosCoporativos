@@ -138,7 +138,15 @@ return [
     "soull_meate" => "Alma de carne",
     "dangacg" => "Dangacg",
     "crcikeft" => "Crcikeft",
-    "avengrs" => "Vengadores"
+    "avengrs" => "Vengadores",
+
+    'how_to_register' => 'Como registrarme',
+    'how_to_register_content' => 'Para registrarte, simplemente ve a la página de registro, completa tus datos y sigue los pasos. Asegúrate de usar una dirección de correo electrónico válida, ya que la necesitarás para verificar tu cuenta.',
+
+    'how_to_verify_email' => 'Cómo verificar mi correo electrónico',
+    'how_to_verify_email_content' => 'Después de registrarte, revisa la bandeja de entrada de tu correo electrónico para encontrar un enlace de verificación. Haz clic en el enlace para confirmar tu dirección de correo electrónico y activar tu cuenta. Si no ves el correo, revisa la carpeta de spam o correo no deseado.',
+    'what_is_corporate_email' => '¿Correo Corporativo?',
+    'what_is_corporate_email_content' => 'El correo corporativo es una dirección de correo profesional proporcionada por tu organización. A menudo usa el dominio de la empresa (por ejemplo, tunombre@upea.edu.bo) y se utiliza para comunicaciones oficiales.',
 
 
 
