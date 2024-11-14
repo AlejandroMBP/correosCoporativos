@@ -12,16 +12,18 @@
         role="dialog">
         <div class="offcanvas-header gap-3">
             <div class="d-flex align-items-center">
-                <h5 class="offcanvas-title text-dark" id="live-customizer-label">Live Customizer</h5>
+                <h5 class="offcanvas-title text-dark" id="live-customizer-label">ORIENTACION DE TEXTO</h5>
             </div>
             <div class="d-flex gap-1 align-items-center">
-                <button class="btn btn-icon text-primary" data-reset="settings" data-bs-toggle="tooltip" data-bs-placement="left" aria-label="Reset All Settings"
+                <button class="btn btn-icon text-primary" data-reset="settings" data-bs-toggle="tooltip"
+                    data-bs-placement="left" aria-label="Reset All Settings"
                     data-bs-original-title="Reset All Settings">
                     <span class="btn-inner">
                         <i class="fa-solid fa-arrows-rotate"></i>
                     </span>
                 </button>
-                <button type="button" class="btn btn-icon btn-close px-0 text-reset shadow-none text-dark" data-bs-dismiss="offcanvas" aria-label="Close">
+                <button type="button" class="btn btn-icon btn-close px-0 text-reset shadow-none text-dark"
+                    data-bs-dismiss="offcanvas" aria-label="Close">
                     {{-- <i class="fa-solid fa-xmark"></i>  --}}
                 </button>
             </div>
@@ -30,8 +32,8 @@
             <div class="modes row row-cols-2 gx-2">
                 <div class="col">
                     <div data-setting="attribute" class="text-center w-100">
-                        <input type="radio" value="ltr" class="btn-check" name="theme_scheme_direction" data-prop="dir"
-                            id="theme-scheme-direction-ltr" checked>
+                        <input type="radio" value="ltr" class="btn-check" name="theme_scheme_direction"
+                            data-prop="dir" id="theme-scheme-direction-ltr" checked>
                         <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-direction-ltr">
                             LTR
                         </label>
@@ -39,8 +41,8 @@
                 </div>
                 <div class="col">
                     <div data-setting="attribute" class="text-center w-100">
-                        <input type="radio" value="rtl" class="btn-check" name="theme_scheme_direction" data-prop="dir"
-                            id="theme-scheme-direction-rtl">
+                        <input type="radio" value="rtl" class="btn-check" name="theme_scheme_direction"
+                            data-prop="dir" id="theme-scheme-direction-rtl">
                         <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-direction-rtl">
                             RTL
                         </label>
@@ -49,42 +51,47 @@
             </div>
             <div class="modes mt-3">
                 <div class="color-customizer mb-3">
-                    <h6 class="mb-0 title-customizer">Color Customizer</h6>
+                    <h6 class="mb-0 title-customizer">CONFIGURACION DE COLOR</h6>
                 </div>
                 <div class="row row-cols-2 gx-2">
                     <div class="col mb-3">
                         <div data-setting="attribute" class="text-center w-100">
                             <input type="radio" value="dark" class="btn-check" name="theme_style_appearance"
-                                data-prop="data-bs-theme" id="theme-scheme-color-netflix" data-colors="{&quot;primary&quot;: &quot;#e50914&quot;, &quot;secondary&quot;: &quot;#adafb8&quot;, &quot;tertiray&quot;: &quot;#adafb8&quot;}" checked>
+                                data-prop="data-bs-theme" id="theme-scheme-color-netflix"
+                                data-colors="{&quot;primary&quot;: &quot;#e50914&quot;, &quot;secondary&quot;: &quot;#adafb8&quot;, &quot;tertiray&quot;: &quot;#adafb8&quot;}"
+                                checked>
                             <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-color-netflix">
-                                Netflix
+                                ROJO
                             </label>
                         </div>
                     </div>
                     <div class="col mb-3">
                         <div data-setting="attribute" class="text-center w-100">
                             <input type="radio" value="hotstar" class="btn-check" name="theme_style_appearance"
-                                data-prop="data-bs-theme" id="theme-scheme-color-hotstar" data-colors="{&quot;primary&quot;: &quot;#0959E4&quot;, &quot;secondary&quot;: &quot;#adafb8&quot;, &quot;tertiray&quot;: &quot;#EA4335&quot;}">
+                                data-prop="data-bs-theme" id="theme-scheme-color-hotstar"
+                                data-colors="{&quot;primary&quot;: &quot;#0959E4&quot;, &quot;secondary&quot;: &quot;#adafb8&quot;, &quot;tertiray&quot;: &quot;#EA4335&quot;}">
                             <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-color-hotstar">
-                                Hotstar
+                                AZUL
                             </label>
                         </div>
                     </div>
                     <div class="col">
                         <div data-setting="attribute" class="text-center w-100">
                             <input type="radio" value="amazonprime" class="btn-check" name="theme_style_appearance"
-                                data-prop="data-bs-theme" id="theme-scheme-color-prime" data-colors="{&quot;primary&quot;: &quot;#1A98FF&quot;, &quot;secondary&quot;: &quot;#adafb8&quot;, &quot;tertiray&quot;: &quot;#89F425&quot;}">
+                                data-prop="data-bs-theme" id="theme-scheme-color-prime"
+                                data-colors="{&quot;primary&quot;: &quot;#1A98FF&quot;, &quot;secondary&quot;: &quot;#adafb8&quot;, &quot;tertiray&quot;: &quot;#89F425&quot;}">
                             <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-color-prime">
-                                Prime
+                                CELESTE
                             </label>
                         </div>
                     </div>
                     <div class="col">
                         <div data-setting="attribute" class="text-center w-100">
                             <input type="radio" value="hulu" class="btn-check" name="theme_style_appearance"
-                                data-prop="data-bs-theme" id="theme-scheme-color-hulu" data-colors="{&quot;primary&quot;: &quot;#3ee783&quot;, &quot;secondary&quot;: &quot;#adafb8&quot;, &quot;tertiray&quot;: &quot;#0E0E0E&quot;}">
+                                data-prop="data-bs-theme" id="theme-scheme-color-hulu"
+                                data-colors="{&quot;primary&quot;: &quot;#3ee783&quot;, &quot;secondary&quot;: &quot;#adafb8&quot;, &quot;tertiray&quot;: &quot;#0E0E0E&quot;}">
                             <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-color-hulu">
-                                Hulu
+                                VERDE
                             </label>
                         </div>
                     </div>

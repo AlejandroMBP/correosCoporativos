@@ -13,8 +13,8 @@
                                     <div class="swiper-slide swiper-bg">
                                         <div class="block-images position-relative ">
                                             <div class="img-box">
-                                                <img src="{{ asset('frontend/images/movies/utic.webp') }}" class="img-fluid"
-                                                    alt="" loading="lazy">
+                                                <img src="{{ asset('frontend/images/movies/portada13.jpg') }}"
+                                                    class="img-fluid" alt="" loading="lazy">
                                                 <div class="block-description ps-3">
                                                     {{-- <h6 class="iq-title fw-500 mb-0">{{ __('otthome.the_hunter') }}</h6> --}}
                                                     <h6 class="iq-title fw-500 mb-0">Como Registrarse</h6>
@@ -26,7 +26,7 @@
                                     <div class="swiper-slide swiper-bg">
                                         <div class="block-images position-relative ">
                                             <div class="img-box">
-                                                <img src="{{ asset('frontend/images/movies/utic3.webp') }}"
+                                                <img src="{{ asset('frontend/images/movies/portada7.jpg') }}"
                                                     class="img-fluid" alt="" loading="lazy">
                                                 <div class="block-description">
                                                     {{-- <h6 class="iq-title fw-500 mb-0">{{ __('otthome.the_mandalorian') }}</h6> --}}
@@ -39,7 +39,7 @@
                                     <div class="swiper-slide swiper-bg">
                                         <div class="block-images position-relative ">
                                             <div class="img-box">
-                                                <img src="{{ asset('frontend/images/movies/utic2-.webp') }}"
+                                                <img src="{{ asset('frontend/images/movies/portada2.jpg') }}"
                                                     class="img-fluid" alt="" loading="lazy">
                                                 <div class="block-description">
                                                     <h6 class="iq-title fw-500 mb-0">Que es el Correo Corporativo?
@@ -67,7 +67,7 @@
                         <div class="swiper-wrapper m-0">
                             <div class="swiper-slide p-0">
                                 <div class="slider--image block-images">
-                                    <img src="{{ asset('frontend/images/movies/utic.webp') }}" loading="lazy"
+                                    <img src="{{ asset('frontend/images/movies/portada13.jpg') }}" loading="lazy"
                                         alt="banner" />
                                 </div>
                                 <div class="description">
@@ -109,7 +109,7 @@
                             </div>
                             <div class="swiper-slide p-0">
                                 <div class="slider--image block-images">
-                                    <img src="{{ asset('frontend/images/movies/utic3.webp') }}" loading="lazy"
+                                    <img src="{{ asset('frontend/images/movies/portada7.jpg') }}" loading="lazy"
                                         alt="" />
                                 </div>
                                 <div class="description">
@@ -148,7 +148,7 @@
                             </div>
                             <div class="swiper-slide p-0">
                                 <div class="slider--image block-images">
-                                    <img src="{{ asset('frontend/images/movies/utic2-.webp') }}" loading="lazy"
+                                    <img src="{{ asset('frontend/images/movies/portada2.jpg') }}" loading="lazy"
                                         alt="" />
                                 </div>
                                 <div class="description">

@@ -6,15 +6,6 @@ use App\Http\Controllers\Controller;
 
 class FrontendController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    //main pages
-    // public function index()
-    // {
-    //     return view('frontend::Pages.MainPages.index-page');
-    // }
-
     public function ott()
     {
         return view('frontend::Pages.MainPages.ott-page');
