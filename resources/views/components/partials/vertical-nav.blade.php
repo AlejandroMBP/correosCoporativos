@@ -35,7 +35,7 @@
                             fill="currentColor"></path>
                     </svg>
                 </i>
-                <span class="item-name">{{ __('sidebar.rating') }}</span>
+                <span class="item-name">prueba git </span>
             </a>
         </li>
     @endcan
