@@ -3,6 +3,7 @@ import laravel from "laravel-vite-plugin";
 
 export default defineConfig({
     plugins: [
+
         laravel({
             input: [
                 "public/dashboard/scss/streamit.scss",
@@ -14,6 +15,7 @@ export default defineConfig({
                 "public/dashboard/scss/custom.scss",
                 "resources/css/app.scss",
                 "resources/js/app.js",
+                'Modules/Frontend/resources/assets/css/tailwind.css',
             ],
             refresh: true,
         }),

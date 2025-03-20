@@ -8,7 +8,8 @@ class FrontendController extends Controller
 {
     public function ott()
     {
-        return view('frontend::Pages.MainPages.ott-page');
+        return view('frontend::Pages.MainPages.front');
+        // return view('frontend::Pages.MainPages.ott-page');
     }
 
     // public function movie()

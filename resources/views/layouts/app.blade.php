@@ -21,6 +21,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap"
         rel="stylesheet">
+    @stack('styles')
 </head>
 
 <body class=" {{ isset($bodyClass) ? $bodyClass : '' }}">
@@ -50,6 +51,7 @@
     <!-- SwiperSlider Script -->
     <script src="{{ asset('dashboard/vendor/swiperSlider/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('dashboard/js/plugins/swiper-slider.js') }}" defer></script>
+    @stack('scripts')
 </body>
 <script type="text/javascript">
     // // Deshabilitar click derecho

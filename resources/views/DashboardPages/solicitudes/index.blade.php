@@ -25,6 +25,7 @@
                                     <th>Fecha de nacimiento</th>
                                     <th>Correo</th>
                                     <th>Estado correo</th>
+                                    <th>correo asignado</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -42,6 +43,9 @@
                                             @else
                                                 <span class="badge bg-success-subtle p-2 text-success">Verificado</span>
                                             @endif
+                                        </td>
+                                        <td class="{{ $user->correoCorporativo ? 'text-success' : 'text-warning' }}">
+                                            {{ $user->correoCorporativo ? $user->correoCorporativo->emailCorporativo : 'No asignado' }}
                                         </td>
                                         <td>
                                             <div class="d-flex justify-content-evenly">
@@ -78,6 +82,18 @@
         </div>
     </div>
 @endsection
+
+@if ($errors->any())
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var modalElement = document.getElementById('modalVistaDatos');
+            if (modalElement) {
+                var modalInstance = new bootstrap.Modal(modalElement);
+                modalInstance.show();
+            }
+        });
+    </script>
+@endif
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

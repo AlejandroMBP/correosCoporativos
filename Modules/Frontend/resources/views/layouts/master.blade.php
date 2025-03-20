@@ -11,32 +11,33 @@
 
     @include('frontend::components.partials.head.plugins')
     {{-- Vite CSS --}}
-    {{ module_vite('build-frontend', 'resources/assets/sass/app.scss') }}
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&display=swap"
         rel="stylesheet">
-
+    @vite('resources/css/app.css')
 </head>
 
 <body class="{{ $bodyClass ?? '' }}">
 
-    @include('frontend::components.loader-component')
+    {{-- @include('frontend::components.loader-component') --}}
 
     <main class="main-content">
-
-        @include('frontend::components.partials.header-default')
+        @include('frontend::components.extras.header')
+        {{-- @include('frontend::components.partials.header-default')
 
         @if (isset($isBreadCrumb) && $isBreadCrumb)
             @include('frontend::components.breadcrumb-widget')
-        @endif
+        @endif --}}
         @yield('content')
     </main>
 
-    @include('frontend::components.partials.footer-default')
+    {{-- @include('frontend::components.partials.footer-default') --}}
 
 
     <div id="back-to-top" style="display: none;">
@@ -45,8 +46,8 @@
             <i class="fa-solid fa-chevron-up"></i>
         </a>
     </div>
-
-    @include('frontend::components.partials.setting')
+    @include('frontend::components.extras.footer')
+    {{-- @include('frontend::components.partials.setting') --}}
     {{-- Vite JS --}}
     {{ module_vite('build-frontend', 'resources/assets/js/app.js') }}
 
